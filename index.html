@@ -1,54 +1,109 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-  <meta name="theme-color" content="#373A36">
-  <title>Aurecon Office Triptych Clock</title>
-  <link rel="stylesheet" href="styles-v2.css?v=20260806c">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta name="theme-color" content="#373A36">
+<title>Aurecon Office Triptych Clock</title>
+<style>
+@font-face{font-family:"PT Serif Local";src:url("./assets/fonts/PT_Serif-Web-Bold.ttf") format("truetype");font-style:normal;font-weight:700;font-display:swap}
+@font-face{font-family:"Open Sans Local";src:url("./assets/fonts/OpenSans-Variable.ttf") format("truetype");font-style:normal;font-weight:300 800;font-display:swap}
+:root{--stage-w:3840px;--stage-h:804px;--panel-w:1280px;--centre:#373A36;--side:#1C1B1C;--divider:#BBC6C3;--text:#F4F2EA;--muted:rgba(244,242,234,.68);--green:#89C925;--pad:80px;--message-size:126px}
+*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#121312}body{color:var(--text);font-family:"Open Sans Local","Open Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}#viewport{position:fixed;inset:0;overflow:hidden;background:#121312}#stage{position:absolute;left:50%;top:50%;width:var(--stage-w);height:var(--stage-h);display:grid;grid-template-columns:repeat(3,var(--panel-w));transform:translate(-50%,-50%) scale(1);transform-origin:center;overflow:hidden}.panel{position:relative;width:var(--panel-w);height:var(--stage-h);overflow:hidden}.panel.side{background:var(--side)}.panel.centre{background:var(--centre)}.title{position:absolute;top:52px;left:var(--pad);right:var(--pad);height:40px;white-space:nowrap;overflow:hidden;font:600 27px/1.2 "Open Sans Local","Open Sans",Arial,sans-serif;color:var(--muted);letter-spacing:.01em}.title .place{font-weight:700;color:var(--text)}.title .clock{margin-left:18px;color:var(--green);font-variant-numeric:tabular-nums}.title .date{margin-left:18px}.progress{position:absolute;left:var(--pad);right:var(--pad);top:106px;height:4px;background:rgba(137,201,37,.14);overflow:hidden}.progress>i{display:block;width:100%;height:100%;background:var(--green);transform:scaleX(0);transform-origin:left;will-change:transform}.message{position:absolute;left:var(--pad);right:var(--pad);top:164px;bottom:70px;display:grid;grid-template-rows:repeat(2,minmax(0,1fr));row-gap:28px;align-content:center;overflow:hidden}.line{display:flex;align-items:center;min-width:0;overflow:hidden;white-space:pre;font-family:"PT Serif Local","PT Serif","Noto Serif","Noto Serif CJK TC","Noto Serif CJK SC","Noto Serif Thai",Georgia,serif;font-size:var(--message-size);font-weight:700;line-height:.98;letter-spacing:-.025em;color:var(--text)}.line.time{color:var(--green)}.typed{display:inline-block;min-width:0}.cursor{display:inline-block;width:8px;height:.8em;margin-left:.08em;background:var(--green);transform:translateY(.03em)}.cursor[hidden]{display:none}.cursor.blink{animation:blink 1s steps(1,end) infinite}@keyframes blink{0%,48%{opacity:1}49%,100%{opacity:0}}.divider{position:absolute;top:0;bottom:0;width:2px;background:var(--divider);z-index:5}.d1{left:1279px}.d2{left:2559px}.rotate{position:fixed;inset:0;z-index:20;display:grid;place-content:center;text-align:center;padding:36px;background:rgba(18,19,18,.97);color:var(--text);font:18px/1.4 "Open Sans Local",Arial,sans-serif}.rotate[hidden]{display:none}.rotate strong{display:block;margin-bottom:10px;color:var(--green);font-size:42px}@media(prefers-reduced-motion:reduce){.cursor.blink{animation-duration:1.8s}}
+</style>
 </head>
 <body>
-  <main id="viewport" aria-label="Aurecon multilingual office clock">
-    <section id="stage">
-      <div class="panel panel-side" id="leftPanel" data-panel="left">
-        <header class="panel-title" id="leftTitle"></header>
-        <div class="progress-track"><div class="progress-fill" id="leftProgress"></div></div>
-        <div class="message" id="leftMessage" lang="en">
-          <div class="message-line" data-line="0"><span class="typed"></span><span class="cursor" hidden></span></div>
-          <div class="message-line time-line" data-line="1"><span class="typed"></span><span class="cursor" hidden></span></div>
-        </div>
-      </div>
-
-      <div class="panel panel-centre" id="centrePanel" data-panel="centre">
-        <header class="panel-title" id="centreTitle"></header>
-        <div class="progress-track"><div class="progress-fill" id="centreProgress"></div></div>
-        <div class="message" id="centreMessage" lang="en-AU">
-          <div class="message-line" data-line="0"><span class="typed"></span><span class="cursor" hidden></span></div>
-          <div class="message-line time-line" data-line="1"><span class="typed"></span><span class="cursor" hidden></span></div>
-        </div>
-      </div>
-
-      <div class="panel panel-side" id="rightPanel" data-panel="right">
-        <header class="panel-title" id="rightTitle"></header>
-        <div class="progress-track"><div class="progress-fill" id="rightProgress"></div></div>
-        <div class="message" id="rightMessage" lang="en">
-          <div class="message-line" data-line="0"><span class="typed"></span><span class="cursor" hidden></span></div>
-          <div class="message-line time-line" data-line="1"><span class="typed"></span><span class="cursor" hidden></span></div>
-        </div>
-      </div>
-
-      <div class="divider divider-one" aria-hidden="true"></div>
-      <div class="divider divider-two" aria-hidden="true"></div>
-    </section>
-
-    <div id="rotatePrompt" class="rotate-prompt" hidden>
-      <div class="rotate-icon" aria-hidden="true">↻</div>
-      <p>Rotate your phone for the full gallery preview</p>
+<main id="viewport">
+<section id="stage">
+  <article class="panel side" id="leftPanel">
+    <header class="title" id="leftTitle"><span class="place">Hong Kong, Hong Kong</span><span class="clock">00:00:00</span><span class="date">Thu 06 Aug</span></header>
+    <div class="progress"><i id="leftProgress"></i></div>
+    <div class="message" id="leftMessage" lang="zh-Hant">
+      <div class="line"><span class="typed">致香港的同事，</span><span class="cursor blink"></span></div>
+      <div class="line time"><span class="typed">現在時間</span><span class="cursor" hidden></span></div>
     </div>
-  </main>
-  <script type="module" src="app-v2.js?v=20260806c"></script>
-  <script src="title-english.js?v=20260806c"></script>
+  </article>
+  <article class="panel centre" id="centrePanel">
+    <header class="title" id="centreTitle"><span class="place">Melbourne, Australia</span><span class="clock">00:00:00</span><span class="date">Thu 06 Aug</span></header>
+    <div class="progress"><i id="centreProgress"></i></div>
+    <div class="message" id="centreMessage" lang="en-AU">
+      <div class="line"><span class="typed">In Melbourne, it is</span><span class="cursor blink"></span></div>
+      <div class="line time"><span class="typed">the current time</span><span class="cursor" hidden></span></div>
+    </div>
+  </article>
+  <article class="panel side" id="rightPanel">
+    <header class="title" id="rightTitle"><span class="place">Jakarta, Indonesia</span><span class="clock">00:00:00</span><span class="date">Thu 06 Aug</span></header>
+    <div class="progress"><i id="rightProgress"></i></div>
+    <div class="message" id="rightMessage" lang="id">
+      <div class="line"><span class="typed">Untuk rekan kami di Jakarta,</span><span class="cursor blink"></span></div>
+      <div class="line time"><span class="typed">waktu setempat</span><span class="cursor" hidden></span></div>
+    </div>
+  </article>
+  <div class="divider d1"></div><div class="divider d2"></div>
+</section>
+<div class="rotate" id="rotatePrompt" hidden><div><strong>↻</strong>Rotate your phone for the full gallery preview</div></div>
+</main>
+<script>
+(function(){
+'use strict';
+const STAGE_W=3840,STAGE_H=804,PANEL_TEXT_W=1120,MAX_SIZE=132,MIN_SIZE=58;
+const SIDE_MS=30000,CENTRE_MS=60000,RIGHT_OFFSET=15000;
+const q=new URLSearchParams(location.search),noanim=q.get('noanim')==='1',demo=q.get('demo')==='1',demoInterval=Math.max(2200,Number(q.get('interval'))||5000),freeze=q.get('freeze');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const stage=document.getElementById('stage'),rotate=document.getElementById('rotatePrompt');
+const EN_ONES=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+const EN_TENS={20:'twenty',30:'thirty',40:'forty',50:'fifty'};
+function enNum(n){if(n<20)return EN_ONES[n];const t=Math.floor(n/10)*10,o=n%10;return o?EN_TENS[t]+'-'+EN_ONES[o]:EN_TENS[t]}
+function enHour(h){return enNum(h%12||12)}
+function enTime(h,m){if(m===0)return enHour(h)+" o'clock";if(m===15)return 'quarter past '+enHour(h);if(m===30)return 'half past '+enHour(h);if(m===45)return 'quarter to '+enHour(h+1);if(m<30)return enNum(m)+' '+(m===1?'minute':'minutes')+' past '+enHour(h);const r=60-m;return enNum(r)+' '+(r===1?'minute':'minutes')+' to '+enHour(h+1)}
+function zhNum(n){const d=['零','一','二','三','四','五','六','七','八','九'];if(n<10)return d[n];if(n===10)return'十';if(n<20)return'十'+d[n-10];return d[Math.floor(n/10)]+'十'+(n%10?d[n%10]:'')}
+function zhTime(h,m,traditional){return zhNum(h)+'時'+zhNum(m)+'分'}
+function austNum(n,zero='nol'){const o=[zero,'satu','dua','tiga','empat','lima','enam','tujuh','delapan','sembilan'];if(n<10)return o[n];if(n===10)return'sepuluh';if(n===11)return'sebelas';if(n<20)return o[n-10]+' belas';const t=Math.floor(n/10),r=n%10;return o[t]+' puluh'+(r?' '+o[r]:'')}
+function filNum(n){const b=['sero','isa','dalawa','tatlo','apat','lima','anim','pito','walo','siyam','sampu'];if(n<=10)return b[n];const teen={11:'labing-isa',12:'labindalawa',13:'labintatlo',14:'labing-apat',15:'labinlima',16:'labing-anim',17:'labimpito',18:'labingwalo',19:'labinsiyam'};if(n<20)return teen[n];const t={2:'dalawampu',3:'tatlumpu',4:'apatnapu',5:'limampu'},r=n%10;return t[Math.floor(n/10)]+(r?' at '+b[r]:'')}
+function thaiNum(n){const d=['ศูนย์','หนึ่ง','สอง','สาม','สี่','ห้า','หก','เจ็ด','แปด','เก้า'];if(n<10)return d[n];const t=Math.floor(n/10),r=n%10;return(t===1?'สิบ':t===2?'ยี่สิบ':d[t]+'สิบ')+(r===0?'':r===1?'เอ็ด':d[r])}
+function viNum(n){const d=['không','một','hai','ba','bốn','năm','sáu','bảy','tám','chín'];if(n<10)return d[n];const t=Math.floor(n/10),r=n%10;let x=t===1?'mười':d[t]+' mươi';if(r===1&&t>1)x+=' mốt';else if(r===4&&t>1)x+=' tư';else if(r===5)x+=' lăm';else if(r)x+=' '+d[r];return x}
+const offices=[
+{id:'hong-kong',city:'Hong Kong',country:'Hong Kong',tz:'Asia/Hong_Kong',lang:'zh-Hant',intro:['致香港的同事，','向香港的朋友問好，','香港的同事現在是'],time:(h,m)=>zhTime(h,m,true)},
+{id:'shanghai',city:'Shanghai',country:'China',tz:'Asia/Shanghai',lang:'zh-Hans',intro:['给上海的同事，','向上海的朋友问好，','上海的同事现在是'],time:(h,m)=>zhNum(h)+'时'+zhNum(m)+'分'},
+{id:'beijing',city:'Beijing',country:'China',tz:'Asia/Shanghai',lang:'zh-Hans',intro:['给北京的同事，','向北京的朋友问好，','北京的同事现在是'],time:(h,m)=>zhNum(h)+'时'+zhNum(m)+'分'},
+{id:'jakarta',city:'Jakarta',country:'Indonesia',tz:'Asia/Jakarta',lang:'id',intro:['Untuk rekan kami di Jakarta,','Salam untuk teman-teman di Jakarta,','Bagi kolega kami di Jakarta,'],time:(h,m)=>'pukul '+austNum(h)+(m?' lewat '+austNum(m)+' menit':' tepat')},
+{id:'manila',city:'Manila',country:'Philippines',tz:'Asia/Manila',lang:'fil',intro:['Para sa mga kaibigan natin sa Maynila,','Para sa ating mga kasamahan sa Maynila,','Sa mga kaibigan natin sa Maynila,'],time:(h,m)=>'alas '+['dose','una','dos','tres','kwatro','singko','sais','siyete','otso','nuwebe','diyes','onse'][h%12]+(m?' at '+filNum(m):' eksakto')},
+{id:'singapore',city:'Singapore',country:'Singapore',tz:'Asia/Singapore',lang:'en',intro:['For our colleagues in Singapore,','For our friends in Singapore,','Over in Singapore, it is'],time:enTime},
+{id:'bangkok',city:'Bangkok',country:'Thailand',tz:'Asia/Bangkok',lang:'th',intro:['สำหรับเพื่อนร่วมงานที่กรุงเทพฯ','ถึงเพื่อน ๆ ที่กรุงเทพฯ','สำหรับทีมงานที่กรุงเทพฯ'],time:(h,m)=>thaiNum(h)+' นาฬิกา '+thaiNum(m)+' นาที'},
+{id:'ho-chi-minh-city',city:'Ho Chi Minh City',country:'Vietnam',tz:'Asia/Ho_Chi_Minh',lang:'vi',intro:['Dành cho các bạn ở Thành phố Hồ Chí Minh,','Gửi đến đồng nghiệp ở Thành phố Hồ Chí Minh,','Với bạn bè ở Thành phố Hồ Chí Minh,'],time:(h,m)=>viNum(h)+' giờ '+viNum(m)+' phút'},
+{id:'kuala-lumpur',city:'Kuala Lumpur',country:'Malaysia',tz:'Asia/Kuala_Lumpur',lang:'ms',intro:['Untuk rakan-rakan kami di Kuala Lumpur,','Buat sahabat kami di Kuala Lumpur,','Untuk pasukan di Kuala Lumpur,'],time:(h,m)=>'pukul '+austNum(h,'kosong')+(m?' lewat '+austNum(m,'kosong')+' minit':' tepat')},
+{id:'macau',city:'Macau',country:'Macau',tz:'Asia/Macau',lang:'zh-Hant',intro:['致澳門的同事，','向澳門的朋友問好，','澳門的同事現在是'],time:(h,m)=>zhTime(h,m,true)},
+{id:'auckland',city:'Auckland',country:'New Zealand',tz:'Pacific/Auckland',lang:'en',intro:['For our friends in Auckland,','For our colleagues in Auckland,','Over in Auckland, it is'],time:enTime},
+{id:'wellington',city:'Wellington',country:'New Zealand',tz:'Pacific/Auckland',lang:'en',intro:['For our friends in Wellington,','For our colleagues in Wellington,','Over in Wellington, it is'],time:enTime},
+{id:'sydney',city:'Sydney',country:'Australia',tz:'Australia/Sydney',lang:'en',intro:['For our friends in Sydney,','For our colleagues in Sydney,','Over in Sydney, it is'],time:enTime},
+{id:'brisbane',city:'Brisbane',country:'Australia',tz:'Australia/Brisbane',lang:'en',intro:['For our friends in Brisbane,','For our colleagues in Brisbane,','Over in Brisbane, it is'],time:enTime}
+];
+const mel={id:'melbourne',city:'Melbourne',country:'Australia',tz:'Australia/Melbourne',lang:'en',time:enTime};
+const panels={left:panel('left',SIDE_MS,0),centre:panel('centre',CENTRE_MS,0),right:panel('right',SIDE_MS,RIGHT_OFFSET)};
+let demoStart=performance.now(),lastSec=-1;
+function panel(name,cycle,offset){const msg=document.getElementById(name+'Message');return{name,cycle,offset,title:document.getElementById(name+'Title'),progress:document.getElementById(name+'Progress'),message:msg,lines:[...msg.querySelectorAll('.line')].map(root=>({root,typed:root.querySelector('.typed'),cursor:root.querySelector('.cursor')})),rendered:[...msg.querySelectorAll('.typed')].map(x=>x.textContent),office:name==='centre'?mel:null,key:'',token:0,transitioning:false}}
+function now(perf=performance.now()){if(freeze){const d=new Date(freeze);if(!isNaN(d))return d}if(!demo)return new Date();return new Date(Date.now()+(perf-demoStart)*(SIDE_MS/demoInterval))}
+function parts(date,office){const p=Object.fromEntries(new Intl.DateTimeFormat('en-AU',{timeZone:office.tz,hourCycle:'h23',hour:'2-digit',minute:'2-digit',second:'2-digit',weekday:'short',day:'2-digit',month:'short'}).formatToParts(date).filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));return{hour:+p.hour,minute:+p.minute,second:+p.second,digital:p.hour+':'+p.minute+':'+p.second,date:p.weekday+' '+p.day+' '+p.month}}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
+function title(panel,office,p){panel.title.innerHTML='<span class="place">'+esc(office.city)+', '+esc(office.country)+'</span><span class="clock">'+p.digital+'</span><span class="date">'+esc(p.date)+'</span>'}
+function slot(panel,date){return Math.floor((date.getTime()-panel.offset)/panel.cycle)}
+function officeFor(panel,date){if(panel.name==='centre')return mel;const i=((slot(panel,date)%offices.length)+offices.length)%offices.length;if(panel.name==='left')return offices[i];let j=(i+Math.ceil(offices.length/2))%offices.length;const l=officeFor(panels.left,date);if(offices[j].id===l.id)j=(j+1)%offices.length;return offices[j]}
+function message(panel,office,p,date){if(panel.name==='centre'){const leads=['In Melbourne, it is','Here in Melbourne, it is','For Melbourne, the time is'];return[leads[p.minute%leads.length],enTime(p.hour,p.minute)]}const idx=((slot(panel,date)+(panel.name==='right'?1:0))%office.intro.length+office.intro.length)%office.intro.length;return[office.intro[idx],office.time(p.hour,p.minute)]}
+function measure(panel,lines){const probe=panel.lines[0].root.cloneNode(true),typed=probe.querySelector('.typed');probe.querySelector('.cursor').remove();Object.assign(probe.style,{position:'absolute',left:'-10000px',top:'0',width:'max-content',maxWidth:'none',overflow:'visible',visibility:'hidden'});document.body.append(probe);function width(size){probe.style.fontSize=size+'px';let w=0;for(const t of lines){typed.textContent=t||' ';w=Math.max(w,probe.scrollWidth)}return w}let lo=MIN_SIZE,hi=MAX_SIZE;for(let i=0;i<15;i++){const mid=(lo+hi)/2;if(width(mid)<=PANEL_TEXT_W-12)lo=mid;else hi=mid}probe.remove();return Math.floor(lo*100)/100}
+function sleep(ms,token,panel){return new Promise((res,rej)=>setTimeout(()=>token===panel.token?res():rej(new DOMException('Superseded','AbortError')),ms))}
+function cursor(line,working,visible=true){line.cursor.hidden=!visible;line.cursor.classList.toggle('blink',visible&&!working)}
+async function transition(panel,office,lines,key){const token=++panel.token;panel.key=key;panel.transitioning=true;panel.message.lang=office.lang;try{if(panel.rendered.some(Boolean)){for(const line of [...panel.lines].reverse()){cursor(line,true);let t=line.typed.textContent;if(noanim||reduced)t='';else while(t){t=t.slice(0,-1);line.typed.textContent=t;await sleep(12,token,panel)}line.typed.textContent='';cursor(line,false,false)}}const size=measure(panel,lines);for(const line of panel.lines)line.root.style.fontSize=size+'px';panel.office=office;title(panel,office,parts(now(),office));panel.transitioning=false;for(let i=0;i<2;i++){const line=panel.lines[i];cursor(line,true);line.typed.textContent='';if(noanim||reduced)line.typed.textContent=lines[i];else for(const ch of lines[i]){line.typed.textContent+=ch;await sleep(panel.name==='centre'?24:20,token,panel)}cursor(line,false,i===1)}panel.rendered=[...lines]}catch(e){if(token===panel.token)panel.transitioning=false;if(e.name!=='AbortError')console.error(e)}}
+function progress(panel,date){const phase=((date.getTime()-panel.offset)%panel.cycle+panel.cycle)%panel.cycle;panel.progress.style.transform='scaleX('+(phase/panel.cycle).toFixed(6)+')'}
+function renderInstant(panel,office,lines,key,date){const size=measure(panel,lines);for(const line of panel.lines)line.root.style.fontSize=size+'px';panel.office=office;panel.key=key;panel.transitioning=false;panel.message.lang=office.lang;title(panel,office,parts(date,office));for(let i=0;i<2;i++){panel.lines[i].typed.textContent=lines[i];cursor(panel.lines[i],false,i===1)}panel.rendered=[...lines]}
+function update(date){for(const panel of Object.values(panels)){const office=officeFor(panel,date),p=parts(date,office),key=panel.name==='centre'?office.id+'-'+p.hour+'-'+p.minute:office.id+'-'+slot(panel,date),lines=message(panel,office,p,date);if(!panel.key)renderInstant(panel,office,lines,key,date);else if(key!==panel.key)transition(panel,office,lines,key);else if(!panel.transitioning){const shown=panel.office||office;title(panel,shown,parts(date,shown))}progress(panel,date)}}
+function scale(){const v=window.visualViewport,w=v?v.width:innerWidth,h=v?v.height:innerHeight,s=Math.min(w/STAGE_W,h/STAGE_H);stage.style.transform='translate(-50%,-50%) scale('+s+')';rotate.hidden=!(w<h&&w<900)}
+function tick(perf){const d=now(perf),sec=Math.floor(d.getTime()/1000);if(sec!==lastSec){lastSec=sec;update(d)}requestAnimationFrame(tick)}
+addEventListener('resize',scale,{passive:true});addEventListener('orientationchange',scale,{passive:true});window.visualViewport&&visualViewport.addEventListener('resize',scale,{passive:true});document.addEventListener('visibilitychange',()=>{if(!document.hidden){lastSec=-1;scale()}});
+scale();update(now());requestAnimationFrame(tick);
+window.__clock={get panels(){return Object.fromEntries(Object.entries(panels).map(([k,p])=>[k,{office:p.office&&p.office.id,title:p.title.textContent,lines:p.lines.map(x=>x.typed.textContent),progress:p.progress.style.transform}]))}};
+})();
+</script>
 </body>
 </html>
