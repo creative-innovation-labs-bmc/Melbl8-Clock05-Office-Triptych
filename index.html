@@ -7,13 +7,14 @@
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
   <meta name="theme-color" content="#373A36">
   <title>Aurecon Office Triptych Clock</title>
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles-v2.css?v=20260806b">
 </head>
 <body>
   <main id="viewport" aria-label="Aurecon multilingual office clock">
     <section id="stage">
       <div class="panel panel-side" id="leftPanel" data-panel="left">
         <header class="panel-title" id="leftTitle"></header>
+        <div class="progress-track"><div class="progress-fill" id="leftProgress"></div></div>
         <div class="message" id="leftMessage" lang="en">
           <div class="message-line" data-line="0"><span class="typed"></span><span class="cursor" hidden></span></div>
           <div class="message-line time-line" data-line="1"><span class="typed"></span><span class="cursor" hidden></span></div>
@@ -22,6 +23,7 @@
 
       <div class="panel panel-centre" id="centrePanel" data-panel="centre">
         <header class="panel-title" id="centreTitle"></header>
+        <div class="progress-track"><div class="progress-fill" id="centreProgress"></div></div>
         <div class="message" id="centreMessage" lang="en-AU">
           <div class="message-line" data-line="0"><span class="typed"></span><span class="cursor" hidden></span></div>
           <div class="message-line time-line" data-line="1"><span class="typed"></span><span class="cursor" hidden></span></div>
@@ -30,6 +32,7 @@
 
       <div class="panel panel-side" id="rightPanel" data-panel="right">
         <header class="panel-title" id="rightTitle"></header>
+        <div class="progress-track"><div class="progress-fill" id="rightProgress"></div></div>
         <div class="message" id="rightMessage" lang="en">
           <div class="message-line" data-line="0"><span class="typed"></span><span class="cursor" hidden></span></div>
           <div class="message-line time-line" data-line="1"><span class="typed"></span><span class="cursor" hidden></span></div>
@@ -38,7 +41,6 @@
 
       <div class="divider divider-one" aria-hidden="true"></div>
       <div class="divider divider-two" aria-hidden="true"></div>
-      <div class="debug-grid" aria-hidden="true"></div>
     </section>
 
     <div id="rotatePrompt" class="rotate-prompt" hidden>
@@ -46,6 +48,6 @@
       <p>Rotate your phone for the full gallery preview</p>
     </div>
   </main>
-  <script type="module" src="app.js?v=1"></script>
+  <script type="module" src="app-v2.js?v=20260806b"></script>
 </body>
 </html>
